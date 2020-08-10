@@ -1,0 +1,21 @@
+.masthead {
+  min-height: 30rem;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 100vh;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background: linear-gradient(to bottom right, #fbca65, cyan);
+}
+
+h3 {
+  font-family: Gadugi;
+}
+
+a {
+  height: 50px;
+  width: 190px;
+  text-align: center;
+  line-height: 30px;
+}
