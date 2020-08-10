@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AddAppointmentComponent } from './add-appointment/add-appointment.component';
 import { ViewAppointmentComponent } from './view-appointment/view-appointment.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { EditAppointmentComponent } from './edit-appointment/edit-appointment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AddAppointmentComponent,
-    ViewAppointmentComponent
+    ViewAppointmentComponent,
+    EditAppointmentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

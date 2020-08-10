@@ -1,1 +1,16 @@
-<p>view-appointment works!</p>
+<div>
+  <h2>All Appointments</h2>
+  <div>
+    <div *ngFor="let app of appList">
+      <div class="row1">
+        <p>{{app.firstName}}</p>
+        <p>{{app.lastName}}</p>
+        <p>{{app.traineePreference}}</p>
+        <p>{{app.package}}</p>
+        <p>{{app.duration}}</p>
+        <p>{{app.total}}</p>
+        <a routerLink="../editapp/{{app.id}}">Edit</a>
+      </div>
+    </div>
+  </div>
+</div>
