@@ -1,0 +1,54 @@
+{
+  "allfriends": [
+    {
+      "id": 1,
+      "firstName": "test",
+      "lastName": "testL",
+      "age": 21,
+      "email": "test@test.com",
+      "date": "2015-03-25T12:00:00Z",
+      "inlineRadioOptions": "Male Trainer",
+      "package": "500",
+      "streetName": "L Block",
+      "cityName": "Ghaziabad",
+      "pincode": "201002",
+      "state": "UP",
+      "duration": 2,
+      "total": 1000
+    },
+    {
+      "firstName": "Prateek",
+      "lastName": "Ganguly",
+      "age": 21,
+      "email": "test@test.com",
+      "date": null,
+      "inlineRadioOptions": "Male Trainer",
+      "streetName": "L block",
+      "cityName": "Ghaziabad",
+      "pincode": "201002",
+      "state": "Uttar Pradesh",
+      "package": "500",
+      "duration": 12,
+      "id": 2
+    },
+    {
+      "firstName": "Gaurav",
+      "lastName": "Thapliyal",
+      "age": 20,
+      "email": "test@test.com",
+      "date": null,
+      "inlineRadioOptions": "Female Trainer",
+      "streetName": "M block",
+      "cityName": "Ghaziabad",
+      "pincode": "201002",
+      "state": "Uttar Pradesh",
+      "package": "1000",
+      "duration": 121,
+      "total": 121000,
+      "id": 3
+    }
+  ],
+  "contactInfo":[
+    
+  ]
+}

@@ -1,73 +1,179 @@
-<form [formGroup]="form">
-  <h2>Add Appointment</h2>
-  <div>
-    <div>
-      <p>First Name</p>
-      <input type="text" formControlName="fname">
-    </div>
-    <div>
-      <p>Last Name</p>
-      <input type="text" formControlName="lname">
-    </div>
-    <div>
-      <p>Age</p>
-      <input type="number" formControlName="age">
-    </div>
-    <div>
-      <p>Email</p>
-      <input type="email" formControlName="email">
-    </div>
-    <div>
-      <p>Calendar</p>
-      <input type="date" formControlName="date">
-    </div>
-    <div>
-      <h2>Trainee Preference</h2>
-      <input formControlName="traineePref" value="Male" type="radio" id="male" name="traineePref">
-      <label for="male">Male</label>
-      <input formControlName="traineePref" value="Female" type="radio" id="female" name="traineePref">
-      <label for="female">Female</label>
-      <input formControlName="traineePref" value="No Preference" type="radio" id="noPref" name="traineePref">
-      <label for="noPref">No Preference</label>
-    </div>
-    <div>
-      <h2>
-        Address
-      </h2>
-      <div>
-        <p>Street Name</p>
-        <input formControlName="streetName">
+<div class="masthead">
+  <form
+    [formGroup]="appointmentForm"
+    (ngSubmit)="onSubmit()"
+    class="text-center p-5"
+  >
+    <p class="h4 mb-4">Add an Appointment</p>
+
+    <div class="form-row mb-4">
+      <div class="col">
+        <input autofocus
+          type="text"
+          formControlName="firstName"
+          id="defaultRegisterFormFirstName"
+          class="form-control"
+          placeholder="First name"
+        />
       </div>
-      <div>
-        <p>City Name</p>
-        <input formControlName="cityName">
-      </div>
-      <div>
-        <p>Pincode</p>
-        <input formControlName="pincode">
-      </div>
-      <div>
-        <p>State</p>
-        <input formControlName="state">
+      <div class="col">
+        <input
+          type="text"
+          formControlName="lastName"
+          id="defaultRegisterFormLastName"
+          class="form-control"
+          placeholder="Last name"
+        />
       </div>
     </div>
-    <div>
-      <h2>Package</h2>
-      <input formControlName="package" value="500" type="radio" name="package" id="500">
-      <label for="500">500</label>
-      <input formControlName="package" value="1000" type="radio" name="package" id="1000">
-      <label for="1000">1000</label>
+
+    <input 
+      type="email"
+      formControlName="email"
+      id="defaultRegisterFormEmail"
+      class="form-control mb-4"
+      placeholder="E-mail"
+    />
+    <input
+      type="number"
+      formControlName="age"
+      id="age"
+      class="form-control mb-4"
+      placeholder="Age"
+    />
+    <fieldset class="appointment-border">
+      <legend class="appointment-border">Address</legend>
+      <div class="form-row mb-4">
+        <div class="col">
+          <input
+            type="text"
+            formControlName="streetName"
+            id="streetName"
+            class="form-control"
+            placeholder="Street Name"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            formControlName="cityName"
+            id="cityName"
+            class="form-control"
+            placeholder="City"
+          />
+        </div>
+      </div>
+      <div class="form-row mb-4">
+        <div class="col">
+          <input
+            type="text"
+            formControlName="state"
+            id="state"
+            class="form-control"
+            placeholder="State/Province"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            formControlName="pincode"
+            id="pincode"
+            class="form-control"
+            placeholder="Zip Code"
+          />
+        </div>
+      </div>
+    </fieldset>
+    <div class="form-row mb-4">
+      <div class="col">
+        <label for="inlineRadioOptions" class="form-control-label"
+          >Trainer Preference</label
+        >
+        <br />
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="inlineRadioOptions"
+            id="inlineRadio1"
+            value="Male Trainer"
+          />
+          <label class="form-check-label" for="inlineRadio1"
+            >Male Trainer</label
+          >
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="inlineRadioOptions"
+            id="inlineRadio2"
+            value="Female Trainer"
+          />
+          <label class="form-check-label" for="inlineRadio2"
+            >Female Trainer</label
+          >
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="inlineRadioOptions"
+            id="inlineRadio3"
+            value="No Preference"
+          />
+          <label class="form-check-label" for="inlineRadio3"
+            >No Preference</label
+          >
+        </div>
+      </div>
     </div>
-    <div>
-      <p>Duration</p>
-      <input formControlName="duration" type="number">
+    <hr>
+    <div class="form-row mb-4">
+      <div class="col">
+        <label for="package" class="form-control-label"
+        >Package</label
+      >
+      <br />
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          formControlName="package"
+          id="500"
+          value=500
+        />
+        <label class="form-check-label" for="500"
+          >500</label
+        >
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          formControlName="package"
+          id="1000"
+          value=1000
+        />
+        <label class="form-check-label" for="1000"
+          >1000</label
+        >
+      </div>
+      </div>
     </div>
-    <div>
-      <h2>Total</h2>
-      <p>{{total}}</p>
-    </div>
-    <div>
-      <button (click)="onSubmit()">Add Appointment</button>
-    </div>
+    <input
+    type="number"
+    formControlName="duration"
+    id="duration"
+    class="form-control mb-4"
+    placeholder="Duration"
+  />
+  <div class="form-group mb-4">
+    <h2>Total</h2>
+    <p>{{total}}</p>
   </div>
-</form>
+    <button class="btn btn-primary my-4 add-app" type="submit">
+      Add Appointment
+    </button>
+  </form>
+</div>

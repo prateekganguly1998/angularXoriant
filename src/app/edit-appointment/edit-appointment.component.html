@@ -1,2 +1,139 @@
-<p>edit-appointment works!</p>
-<p>Appointment id is {{id}}</p>
+<div class="masthead">
+    <form
+      [formGroup]="editForm"
+      (ngSubmit)="onSubmit()"
+      class="text-center p-5"
+    >
+      <p class="h4 mb-4">Edit an Appointment</p>
+  
+      <div class="form-row mb-4">
+        <div class="col">
+          <input autofocus
+            type="text"
+            formControlName="firstName"
+            id="defaultRegisterFormFirstName"
+            class="form-control"
+            placeholder="First name"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            formControlName="lastName"
+            id="defaultRegisterFormLastName"
+            class="form-control"
+            placeholder="Last name"
+          />
+        </div>
+      </div>
+  
+      <input 
+        type="email"
+        formControlName="email"
+        id="defaultRegisterFormEmail"
+        class="form-control mb-4"
+        placeholder="E-mail"
+      />
+      <input
+        type="number"
+        formControlName="age"
+        id="age"
+        class="form-control mb-4"
+        placeholder="Age"
+      />
+      <br>
+      <hr>
+      <div class="form-row mb-4">
+        <div class="col">
+          <label for="inlineRadioOptions" class="form-control-label"
+            >Trainer Preference</label
+          >
+          <br />
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="inlineRadioOptions"
+              id="inlineRadio1"
+              value="Male Trainer"
+            />
+            <label class="form-check-label" for="inlineRadio1"
+              >Male Trainer</label
+            >
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="inlineRadioOptions"
+              id="inlineRadio2"
+              value="Female Trainer"
+            />
+            <label class="form-check-label" for="inlineRadio2"
+              >Female Trainer</label
+            >
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="inlineRadioOptions"
+              id="inlineRadio3"
+              value="No Preference"
+            />
+            <label class="form-check-label" for="inlineRadio3"
+              >No Preference</label
+            >
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="form-row mb-4">
+        <div class="col">
+          <label for="package" class="form-control-label"
+          >Package</label
+        >
+        <br />
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="package"
+            id="500"
+            value=500
+          />
+          <label class="form-check-label" for="500"
+            >500</label
+          >
+        </div>
+        <div class="form-check form-check-inline">
+          <input 
+            class="form-check-input"
+            type="radio"
+            formControlName="package"
+            id="1000"
+            value=1000
+          />
+          <label class="form-check-label" for="1000"
+            >1000</label
+          >
+        </div>
+        </div>
+      </div>
+      <input
+      type="number"
+      formControlName="duration"
+      id="duration"
+      class="form-control mb-4"
+      placeholder="Duration"
+    />
+    <div class="form-group mb-4">
+      <h2>Total</h2>
+      <input class="form-control" disabled formControlName="total" value={{total}}/>
+    </div>
+      <button class="btn btn-primary my-4 add-app" type="submit">
+        Add Appointment
+      </button>
+    </form>
+  </div>
+  
