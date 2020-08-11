@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { log } from "util";
 import { AppointmentService } from "../shared/appointment.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-edit-appointment",
@@ -12,21 +13,33 @@ import { AppointmentService } from "../shared/appointment.service";
 export class EditAppointmentComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private service: AppointmentService
+    private service: AppointmentService,
+    private toastr: ToastrService
   ) {}
   id: number;
   total = null;
   actualData: any = null;
   editForm = new FormGroup({
     id: new FormControl(),
-    firstName: new FormControl(),
-    lastName: new FormControl(),
-    email: new FormControl(),
-    age: new FormControl(),
-    date: new FormControl(),
-    inlineRadioOptions: new FormControl(),
-    package: new FormControl(),
-    duration: new FormControl(),
+    firstName: new FormControl("", [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(10),
+    ]),
+    lastName: new FormControl("", [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(10),
+    ]),
+    age: new FormControl("", [
+      Validators.required,
+      Validators.min(18),
+      Validators.max(60),
+    ]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    inlineRadioOptions: new FormControl("", [Validators.required]),
+    package: new FormControl("", [Validators.required]),
+    duration: new FormControl("", [Validators.required]),
     total: new FormControl(),
   });
 
@@ -39,7 +52,7 @@ export class EditAppointmentComponent implements OnInit {
       delete this.actualData["cityName"];
       delete this.actualData["state"];
       this.editForm.setValue(this.actualData);
-      console.log(data);
+
       this.editForm.valueChanges.subscribe((val) => {
         if (val.duration != null && val.package != null) {
           this.total = "" + val.duration * val.package;
@@ -52,8 +65,17 @@ export class EditAppointmentComponent implements OnInit {
     this.editForm.patchValue({
       total: parseInt(this.total),
     });
-    this.service.editAppointment(this.editForm.value).subscribe(() => {
-      console.log(`Appointment edited`);
-    });
+    console.log(this.editForm);
+    if (this.editForm.status !== "INVALID") {
+      this.toastr.success(
+        "Appointment edited",
+        "You have successfully edited an appointment"
+      );
+      this.service.editAppointment(this.editForm.value).subscribe(() => {
+        console.log(`Appointment edited`);
+      });
+    } else {
+      this.toastr.error("You have entered invalid data!", "Fatal");
+    }
   }
 }

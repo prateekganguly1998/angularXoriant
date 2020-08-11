@@ -35,7 +35,7 @@ legend.appointment-border {
   min-height: 30rem;
   position: relative;
   display: table;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   padding-top: 8rem;
   padding-bottom: 8rem;

@@ -1,0 +1,82 @@
+<div class="masthead">
+  <div class="form text-center centered mx-auto w-50">
+    <form [formGroup]="contactUsForm" class="form">
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              placeholder="Name"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              formControlName="email"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                id="description"
+                placeholder="Enter Description"
+                formControlName="description"
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-outline-success btn-lg" (click)="onSubmit()">Submit</button>
+              </div>
+          </div>
+        </div>
+      </form>
+  </div>
+  <br /><br />
+</div>
+
+<!--Displaying all the Contact Us requests-->
+<div class="card centered mx-auto" style="width:100vw;">
+    <div class="row ">
+      <div class="col ">
+        <table
+          class="table table-responsive-sm table-hover table-dark table-outline mb-0"
+        >
+          <thead class="thead-light">
+            <tr>
+              <th class="text-center">Sr. No.</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Description</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let req of contactReqList; let i = index">
+              <td class="text-center">{{ i + 1 }}.</td>
+              <td class="text-center">
+                {{req.name}}
+              </td>
+              <td class="text-center">{{req.email}}</td>
+
+              <td class="text-center">{{req.description}}</td>
+              <td class="text-center">
+                <button
+                (click)="deleteContactUs(req.id)"
+                  role="button"
+                  class="btn btn-warning"
+                >
+                  Delete
+              </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>
