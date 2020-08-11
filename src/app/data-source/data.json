@@ -28,7 +28,8 @@
       "pincode": "201002",
       "state": "Uttar Pradesh",
       "package": "500",
-      "duration": 12,
+      "duration": 21,
+      "total": 10500,
       "id": 2
     },
     {
@@ -48,7 +49,5 @@
       "id": 3
     }
   ],
-  "contactInfo":[
-    
-  ]
+  "contactInfo": []
 }
